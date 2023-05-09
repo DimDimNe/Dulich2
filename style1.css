@@ -402,18 +402,17 @@ select {
 
 
 
-/* CHATBOX */
 .chatbox-wrapper {
 	position: fixed;
 	bottom: 2rem;
-	right: 2rem;
+	left: 2rem;
 	width: 4rem;
 	height: 4rem;
 }
 .chatbox-toggle {
 	width: 100%;
 	height: 100%;
-	background: var(--blue);
+	background: #ffa500;
 	color: var(--white);
 	font-size: 2rem;
 	display: flex;
@@ -429,13 +428,13 @@ select {
 .chatbox-message-wrapper {
 	position: absolute;
 	bottom: calc(100% + 1rem);
-	right: 0;
+	left: 0;
 	width: 300px;
 	border-radius: .5rem;
 	overflow: hidden;
 	box-shadow: .5rem .5rem 2rem rgba(0, 0, 0, .1);
 	transform: scale(0);
-	transform-origin: bottom right;
+	transform-origin: bottom left;
 	transition: .2s;
 }
 .chatbox-message-wrapper.show {
@@ -571,7 +570,7 @@ select {
 	border: none;
 	outline: none;
 	cursor: pointer;
-    float: right;
+    float: left;
 }
 .chatbox-message-no-message {
 	font-size: 1rem;
@@ -580,6 +579,81 @@ select {
 }
 /* CHATBOX */
 
+/* Backtop*/
+
+#back-to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    border: 3px solid #333;
+    border-radius: 50%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-property: background-color, color;
+  }
+  #back-to-top-btn:hover, #back-to-top-btn:focus {
+    background-color: #ffa500;
+    color: #fff;  
+  }
+  
+  @media(max-width: 992px) {
+    .container { padding: 20px 100px; }
+    #back-to-top-btn { font-size: 22px; width: 40px; height: 40px; bottom: 15px; right: 15px; }
+  }
+  @media(max-width:768px) {
+    body { font-size: 16px; }
+    .container { padding: 10px 50px; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    hr { margin: 30px 0; }
+    #back-to-top-btn { font-size: 18px; width: 32px; height: 32px; bottom: 6px; right: 6px; }
+  }
+  
+  /* Animations */
+  .btnEntrance {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-name: btnEntrance;
+  }
+  
+
+  /* fadeInUp */
+  @keyframes btnEntrance {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .btnExit {
+    animation-duration: 0.25s;
+    animation-fill-mode: both;  
+    animation-name: btnExit;
+  }
+ 
+  
+  /* fadeOutDown */
+  @keyframes btnExit {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+  }
 
 
 
